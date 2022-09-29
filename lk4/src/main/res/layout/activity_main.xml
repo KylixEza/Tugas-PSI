@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:id="@+id/tv_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/greeting"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_greeting_support"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/greeting_support"
+            android:textColor="@color/primary_500"
+            app:layout_constraintStart_toStartOf="@id/tv_greeting"
+            app:layout_constraintTop_toBottomOf="@id/tv_greeting" />
+        
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_greeting"/>
+
+        <SearchView
+            android:id="@+id/sv_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:searchIcon="@drawable/ic_search_24"
+            android:queryHint="Search Class, Assignment etc.,"
+            android:background="@drawable/background_white_corner_24"
+            app:layout_constraintStart_toStartOf="@id/tv_greeting"
+            app:layout_constraintTop_toBottomOf="@id/tv_greeting_support"
+            app:layout_constraintEnd_toEndOf="@id/iv_avatar"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:cardCornerRadius="24dp"
+            android:backgroundTint="@color/secondary_200"
+            app:layout_constraintTop_toTopOf="@id/sv_search"
+            app:layout_constraintBottom_toBottomOf="@id/sv_search"
+            app:layout_constraintEnd_toEndOf="@id/sv_search">
+            <TextView
+                android:id="@+id/tv_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_class"
+                android:padding="16dp"
+                android:textColor="@color/white"
+                android:drawablePadding="2dp"
+                app:layout_constraintEnd_toEndOf="@id/sv_search"
+                app:layout_constraintTop_toTopOf="@id/sv_search"
+                app:layout_constraintBottom_toBottomOf="@id/sv_search"
+                app:drawableEndCompat="@drawable/ic_arrow_drop_down_24" />
+        </androidx.cardview.widget.CardView>
+
+        <include
+            android:id="@+id/include_available_class"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            layout="@layout/include_available_class"
+            app:layout_constraintStart_toStartOf="@id/sv_search"
+            app:layout_constraintEnd_toEndOf="@id/sv_search"
+            app:layout_constraintTop_toBottomOf="@id/sv_search"/>
+
+        <TextView
+            android:id="@+id/tv_upcoming_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/upcoming_class"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/include_available_class"
+            app:layout_constraintStart_toStartOf="@id/include_available_class"/>
+
+        <TextView
+            android:id="@+id/tv_view_all_upcoming_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_all"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/secondary_200"
+            app:layout_constraintEnd_toEndOf="@id/include_available_class"
+            app:layout_constraintTop_toTopOf="@id/tv_upcoming_class"
+            app:layout_constraintBottom_toBottomOf="@id/tv_upcoming_class"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_upcoming_class"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/tv_upcoming_class"
+            app:layout_constraintTop_toBottomOf="@id/tv_upcoming_class"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:listitem="@layout/item_list_upcoming_class"/>
+
+        <TextView
+            android:id="@+id/tv_assignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/assignment"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/rv_upcoming_class"
+            app:layout_constraintStart_toStartOf="@id/rv_upcoming_class"/>
+
+        <TextView
+            android:id="@+id/tv_view_all_assignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_all"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/secondary_200"
+            app:layout_constraintEnd_toEndOf="@id/tv_view_all_upcoming_class"
+            app:layout_constraintTop_toTopOf="@id/tv_assignment"
+            app:layout_constraintBottom_toBottomOf="@id/tv_assignment"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_assignment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/tv_assignment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_assignment"
+            tools:listitem="@layout/item_list_assignment"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
