@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
         val assignmentAdapter = AssignmentAdapter()
         
         binding.apply {
-            rvUpcomingClass.adapter = upComingClassAdapter
+           /* rvUpcomingClass.adapter = upComingClassAdapter
             rvUpcomingClass.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             
             rvAssignment.adapter = assignmentAdapter
             rvAssignment.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             
             upComingClassAdapter.submitData(Dummy.getClasses())
-            assignmentAdapter.submitData(Dummy.getAssignments())
+            assignmentAdapter.submitData(Dummy.getAssignments())*/
         }
     }
 }
