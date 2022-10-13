@@ -8,12 +8,14 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.MotionEvent
 import androidx.annotation.RequiresApi
+import androidx.core.widget.addTextChangedListener
 import com.gdsc.gdsctoast.GDSCToast.Companion.showAnyToast
 import com.kylix.lk4.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivityMainBinding
+    private var counter = 0
     
     @RequiresApi(Build.VERSION_CODES.M)
     @SuppressLint("ClickableViewAccessibility")
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                 showAnyToast {
                     it.text = "Join Button Clicked"
                 }
+                text = "${counter++}"
             }
             
             setOnLongClickListener {
@@ -35,58 +38,16 @@ class MainActivity : AppCompatActivity() {
                 showAnyToast {
                     it.text = "Join Button Long Clicked"
                 }
+                text = "${counter++}"
                 true
             }
             
-            /*setOnFocusChangeListener { view, b ->
-                Log.d("TAG", "onCreate: Button Join Focus Changed")
+            addTextChangedListener {
+                Log.d("TAG", "onCreate: Button Join Text Changed")
                 showAnyToast {
-                    it.text = "Join Button Focus Changed"
+                    it.text = "Join Button Text Changed"
                 }
-            }*/
-            
-            setOnKeyListener { view, i, keyEvent ->
-                when(keyEvent.action) {
-                    KeyEvent.ACTION_DOWN -> {
-                        Log.d("TAG", "onCreate: Button Join Key Down")
-                        showAnyToast {
-                            it.text = "Join Button Key Down"
-                        }
-                    }
-                    KeyEvent.ACTION_UP -> {
-                        Log.d("TAG", "onCreate: Button Join Key Up")
-                        showAnyToast {
-                            it.text = "Join Button Key Up"
-                        }
-                    }
-                    KeyEvent.FLAG_KEEP_TOUCH_MODE -> {
-                        Log.d("TAG", "Button Join Key Keep Touch Mode")
-                        showAnyToast {
-                            it.text = "Join Button Key Keep Touch Mode"
-                        }
-                    }
-                }
-                true
             }
-            
-            /*setOnTouchListener { view, motionEvent ->
-                when(motionEvent.actionButton) {
-                    MotionEvent.ACTION_BUTTON_PRESS -> {
-                        Log.d("TAG", "onCreate: Button Join Pressed")
-                        showAnyToast {
-                            it.text = "Join Button Pressed"
-                        }
-                    }
-                    MotionEvent.ACTION_BUTTON_RELEASE -> {
-                        Log.d("TAG", "onCreate: Button Join Released")
-                        showAnyToast {
-                            it.text = "Join Button Released"
-                        }
-                    }
-                    MotionEvent.ACTION
-                }
-                true
-            }*/
         }
         
     }
