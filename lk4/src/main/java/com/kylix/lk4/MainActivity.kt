@@ -26,27 +26,18 @@ class MainActivity : AppCompatActivity() {
         
         binding.includeAvailableClass.btnJoin.apply {
             setOnClickListener {
-                Log.d("TAG", "onCreate: Button Join Clicked")
-                showAnyToast {
-                    it.text = "Join Button Clicked"
-                }
+                showAnyToast { it.text = "Join Button Clicked" }
                 text = "${counter++}"
             }
             
             setOnLongClickListener {
-                Log.d("TAG", "onCreate: Button Join Long Clicked")
-                showAnyToast {
-                    it.text = "Join Button Long Clicked"
-                }
+                showAnyToast { it.text = "Join Button Long Clicked" }
                 text = "${counter++}"
                 true
             }
             
             addTextChangedListener {
-                Log.d("TAG", "onCreate: Button Join Text Changed")
-                showAnyToast {
-                    it.text = "Join Button Text Changed"
-                }
+                showAnyToast { it.text = "Join Button Text Changed" }
             }
         }
         
